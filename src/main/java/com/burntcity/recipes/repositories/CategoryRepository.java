@@ -2,6 +2,8 @@ package com.burntcity.recipes.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface CategoryRepository extends CrudRepository<CategoryRepository, Long> {
+import com.burntcity.recipes.domain.Category;
+
+public interface CategoryRepository extends CrudRepository<Category, Long> {
 
 }
