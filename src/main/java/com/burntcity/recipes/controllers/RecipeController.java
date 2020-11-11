@@ -1,39 +1,31 @@
 package com.burntcity.recipes.controllers;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.burntcity.recipes.domain.Category;
-import com.burntcity.recipes.domain.UnitOfMeasure;
-import com.burntcity.recipes.repositories.CategoryRepository;
-import com.burntcity.recipes.repositories.UnitOfMeasureRepository;
+import com.burntcity.recipes.bootstrap.Bootstrap;
+import com.burntcity.recipes.services.RecipeService;
+import com.burntcity.recipes.services.RecipeServiceImpl;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class RecipeController {
 
-	private final CategoryRepository categoryRepository;
-	private final UnitOfMeasureRepository unitOfMeasureRepository;
-	
-	
-	
-	public RecipeController(CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
+	private final RecipeService recipeService;
+
+	public RecipeController(RecipeService recipeService) {
 		super();
-		this.categoryRepository = categoryRepository;
-		this.unitOfMeasureRepository = unitOfMeasureRepository;
+		this.recipeService = recipeService;
 	}
 
-	@RequestMapping({"", "/", "index", "index.html"})
-	public String getIndex() {
-		
-		Optional<Category> optionalCat = categoryRepository.findByDescription("American");
-		Optional<UnitOfMeasure> optionalUnitOfMes = unitOfMeasureRepository.findByDescription("Tablespoon");
-		
-		System.out.println("Cat ID is " + optionalCat.get().getId());
-		System.out.println("UOM ID is " + optionalUnitOfMes.get().getId());
-		
+	@RequestMapping({ "", "/", "index", "index.html" })
+	public String getIndex(Model model) {
+		log.debug("GET call all Recipes");
+		model.addAttribute("recipes", recipeService.getRecipes());
 		return "index";
 	}
-	
+
 }

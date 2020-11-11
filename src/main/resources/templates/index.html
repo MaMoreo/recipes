@@ -6,5 +6,21 @@
 </head>
 <body>
 	<h1>List of Recipes</h1>
+	<table id="recipes" class="table table-striped">
+		<thead>
+	    <tr>
+	        <th style="width: 30px;">ID</th>
+	        <th style="width: 150px;">Description</th>
+	        <th style="width: 150px;">Prep Time</th>
+	    </tr>
+	    </thead>
+	    <tbody>
+	    <tr th:each="recipe : ${recipes}">
+	        <td th:text="${recipe?.id}">X</td>
+	        <td th:text="${recipe?.description}">  </td>
+	        <td th:text="${recipe?.prepTime}">  </td> <!-- Null Check -->
+	    </tr>
+	    </tbody>
+	</table>
 </body>
 </html>

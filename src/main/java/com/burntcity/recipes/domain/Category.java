@@ -1,5 +1,6 @@
 package com.burntcity.recipes.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -22,6 +23,6 @@ public class Category {
 	private String description;
 	
 	@ManyToMany(mappedBy = "categories")
-	private Set<Recipe> recipes;
+	private Set<Recipe> recipes = new HashSet<>();
 	
 }
