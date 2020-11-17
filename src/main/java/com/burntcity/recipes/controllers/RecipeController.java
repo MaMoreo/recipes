@@ -4,9 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.burntcity.recipes.bootstrap.Bootstrap;
 import com.burntcity.recipes.services.RecipeService;
-import com.burntcity.recipes.services.RecipeServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
