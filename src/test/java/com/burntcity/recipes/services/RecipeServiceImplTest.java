@@ -31,7 +31,7 @@ class RecipeServiceImplTest {
 	
 	@Test
 	void testGetRecipes() {
-		Recipe rec = new Recipe();
+		Recipe rec = Recipe.builder().id(1L).build();
 		Set<Recipe> recipesData = new HashSet<>();
 		recipesData.add(rec);
 		
