@@ -6,4 +6,5 @@ import com.burntcity.recipes.domain.Recipe;
 
 public interface RecipeService {
 	public Set<Recipe> getRecipes();
+	Recipe findById(Long l);
 }

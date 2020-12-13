@@ -2,13 +2,11 @@ package com.burntcity.recipes.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.burntcity.recipes.services.RecipeService;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Controller
 public class RecipeController {
 
@@ -19,11 +17,10 @@ public class RecipeController {
 		this.recipeService = recipeService;
 	}
 
-	@RequestMapping({ "", "/", "index", "index.html" })
-	public String getIndex(Model model) {
-		log.debug("GET call all Recipes");
-		model.addAttribute("recipes", recipeService.getRecipes());
-		return "index";
+	@RequestMapping("/recipe/show/{id}")
+	public String showById(@PathVariable String id, Model model) {
+		model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)));
+		return "recipe/show";
 	}
-
+	
 }

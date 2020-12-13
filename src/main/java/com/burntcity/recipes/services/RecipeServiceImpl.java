@@ -1,6 +1,7 @@
 package com.burntcity.recipes.services;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -26,5 +27,17 @@ public class RecipeServiceImpl implements RecipeService {
 		Set<Recipe> result = new HashSet<>();
 		repository.findAll().iterator().forEachRemaining(result::add);
 		return result;
+	}
+
+	@Override
+	public Recipe findById(Long l) {
+
+		Optional<Recipe> recipeOptional = repository.findById(l);
+
+		if (!recipeOptional.isPresent()) {
+			throw new RuntimeException("Recipe Not Found!");
+		}
+
+		return recipeOptional.get();
 	}
 }
