@@ -88,7 +88,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
             throw new RuntimeException("Expected UOM Not Found");
         }
 
-        //get optionals
+        //get optional
         UnitOfMeasure eachUom = eachUomOptional.get();
         UnitOfMeasure tableSpoonUom = tableSpoonUomOptional.get();
         UnitOfMeasure teapoonUom = tableSpoonUomOptional.get();
@@ -153,7 +153,11 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         guacRecipe.getCategories().add(americanCategory);
         guacRecipe.getCategories().add(mexicanCategory);
-
+        
+        guacRecipe.setUrl("http://www.simplyrecipes.com/guacamole");
+        guacRecipe.setSource("Simply Recipes");
+        guacRecipe.setServings(4);
+        
         //add to return list
         recipes.add(guacRecipe);
 
@@ -212,6 +216,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         tacosRecipe.getCategories().add(americanCategory);
         tacosRecipe.getCategories().add(mexicanCategory);
+        
+        tacosRecipe.setUrl("http://www.simplyrecipes.com/tacos");
+        tacosRecipe.setSource("Simply Recipes");
+        tacosRecipe.setServings(2);
 
         recipes.add(tacosRecipe);
         return recipes;
