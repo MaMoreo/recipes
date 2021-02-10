@@ -4,9 +4,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import com.burntcity.recipes.domain.Difficulty;
@@ -28,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  * 
  * Again, ContextRefreshedEvent is part of Spring Framework, while
  * ApplicationReadyEvent is Spring Boot specific. So if you want to keep your
- * code generic and not tied to Spring Boot, go with ContextRefreshedEvent.
+ * code generic and not tied to Spring Boot, go with ContextRefreshedEvent. 
  *
  */
 @Slf4j
